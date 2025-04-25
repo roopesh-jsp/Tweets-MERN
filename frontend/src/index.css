@@ -2,4 +2,78 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.container {
+  width: 100%;
+}
+.container form {
+  margin: 100px auto;
+  width: 80%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: rgb(208, 137, 230);
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
+  padding: 20px;
+}
+
+.container form h1 {
+  text-align: center;
+  margin: 5px 0;
+}
+
+.container form input {
+  padding: 9px;
+  border-radius: 7px;
+  border: none;
+}
+.container form input:focus {
+  outline: none;
+  border: 1px solid rgb(52, 20, 62);
+}
+.container form input::placeholder {
+  text-transform: capitalize;
+  padding-left: 5px;
+  letter-spacing: 0.5px;
+}
+
+.container form button {
+  padding: 10px;
+  background-color: rgb(138, 58, 162);
+  color: white;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+}
+.container form button:hover {
+  background-color: rgb(88, 11, 111);
+  scale: 0.98;
+}
+
+.container .auth_form p {
+  font-size: 13px;
+  color: white;
+  text-align: center;
+}
+
+.container .auth_form p span {
+  color: rgb(52, 20, 62);
+  cursor: pointer;
+}
+
+.container .auth_form p.error {
+  color: rgb(227, 0, 45);
+  font-size: 15px;
+  position: relative;
+  top: 20px;
+  font-weight: 600;
+  text-transform: capitalize;
 }
