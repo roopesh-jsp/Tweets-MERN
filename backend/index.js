@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import authRouter from "./routes/authRoutes.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import tweetRoutes from "./routes/tweetRoutes.js";
 const app = express();
 
 //middleawres
@@ -19,6 +20,7 @@ app.use(
 
 //routes
 app.use("/auth", authRouter);
+app.use("/tweets", tweetRoutes);
 
 //connect DB and start server
 const startServer = async () => {
