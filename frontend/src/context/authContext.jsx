@@ -11,14 +11,17 @@ const AuthContext = createContext({
   login: () => {},
   signup: () => {},
   logout: () => {},
+  getUser: () => {},
+  checkingCookie: false,
 });
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setErrors] = useState(null);
-
+  const [checkingCookie, setCheckingCookie] = useState(false);
   const getUser = async () => {
+    setCheckingCookie(true);
     try {
       const { data } = await axios.get("http://localhost:3000/auth/get-me", {
         withCredentials: true,
@@ -31,6 +34,7 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       console.log(error);
     }
+    setCheckingCookie(false);
   };
 
   useEffect(() => {
@@ -116,6 +120,8 @@ export const AuthProvider = ({ children }) => {
     login,
     signup,
     logout,
+    checkingCookie,
+    getUser,
   };
   return <AuthContext.Provider value={ctxVal}>{children}</AuthContext.Provider>;
 };

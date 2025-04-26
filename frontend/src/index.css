@@ -1,3 +1,8 @@
+:root {
+  --primary_color: rgb(208, 137, 230);
+  --secondary-color: rgb(138, 58, 162);
+  --secondary-color-dark: rgb(88, 11, 111);
+}
 * {
   margin: 0;
   padding: 0;
@@ -15,7 +20,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background-color: rgb(208, 137, 230);
+  background-color: var(--primary_color);
   border-radius: 10px;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
   padding: 20px;
@@ -43,7 +48,7 @@
 
 .container form button {
   padding: 10px;
-  background-color: rgb(138, 58, 162);
+  background-color: var(--secondary-color);
   color: white;
   text-transform: uppercase;
   font-weight: 700;
@@ -54,7 +59,7 @@
   transition: all 0.3s ease;
 }
 .container form button:hover {
-  background-color: rgb(88, 11, 111);
+  background-color: var(--secondary-color-dark);
   scale: 0.98;
 }
 
@@ -76,4 +81,182 @@
   top: 20px;
   font-weight: 600;
   text-transform: capitalize;
+}
+
+/* navbar */
+.navbar {
+  background-color: var(--secondary-color);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  color: whitesmoke;
+  align-items: center;
+}
+.nav_left {
+  font-size: 28px;
+}
+.nav_right {
+  display: flex;
+  gap: 20px;
+  font-size: 20px;
+  height: 100%;
+  width: 20%;
+  justify-content: space-between;
+  padding-right: 20px;
+}
+.nav_add_tweet {
+  cursor: pointer;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav_add_tweet:hover {
+  background-color: var(--secondary-color-dark);
+}
+.nav_profile {
+  /* background-color: antiquewhite; */
+  display: flex;
+  align-items: center;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  /* height: 30px; */
+}
+.nav_dropdown {
+  position: absolute;
+  background-color: var(--primary_color);
+  right: 10px;
+  top: 50px;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+}
+.nav_dropdown ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  /* gap: 10px; */
+}
+.nav_dropdown ul li {
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  color: black;
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav_dropdown ul li:hover {
+  background-color: var(--secondary-color);
+  color: whitesmoke;
+}
+
+/* profile */
+.profile_head {
+  background-color: var(--primary_color);
+  width: fit-content;
+  padding: 30px 20px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
+  margin: 50px auto;
+  width: 80%;
+  max-width: 400px;
+}
+/* each row (one field) */
+.profile_head_row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Title like "name", "email" */
+.profile_head_title {
+  text-transform: capitalize;
+  font-size: 20px;
+  font-weight: 700;
+  /* width: 50; */
+  width: 100px; /* Fix width so all start same place */
+}
+
+/* Colon */
+.profile_head_colon {
+  margin: 0 10px;
+  font-weight: 800;
+}
+
+/* Value like "John Doe" */
+.profile_head_value {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+/* profile tweets */
+.profile_tweets {
+  margin-top: 0px;
+  text-align: center;
+}
+
+.profile_tweets_title {
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin: 20px 0;
+}
+.profile_tweets_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.profile_tweet_item {
+  padding: 20px 20px 10px 20px;
+  background-color: var(--secondary-color);
+  color: whitesmoke;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+  font-weight: 500;
+  font-size: 18px;
+  position: relative;
+  min-width: 200px;
+}
+.profile_tweet_item .content {
+  display: flex;
+  justify-content: start;
+}
+.profile_tweet_item .divider {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  margin: 12px 0;
+  height: 1px;
+  background-color: rgb(255, 255, 255);
+}
+.profile_tweet_item .cta {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+  position: relative;
+  left: 10px;
+  /* background-color: aliceblue; */
+}
+.profile_tweet_item .cta button {
+  font-size: 17px;
+  background-color: transparent;
+  border: none;
+  color: whitesmoke;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2 ease;
+}
+.profile_tweet_item .cta button:hover {
+  background-color: var(--secondary-color-dark);
 }

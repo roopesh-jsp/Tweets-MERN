@@ -1,15 +1,21 @@
 import React, { useEffect } from "react";
 import { useAuth } from "./context/authContext";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function Protection({ children }) {
-  const { user } = useAuth();
+  const { user, checkingCookie } = useAuth();
   const nav = useNavigate();
+  const location = useLocation();
   useEffect(() => {
+    if (checkingCookie) return;
     if (!user) {
-      nav("/auth");
+      nav("/auth", { state: { from: location.pathname } });
     }
-  }, [user, nav]);
+  }, [user, nav, checkingCookie, location]);
+
+  if (checkingCookie) {
+    return <div>checking cookies ...</div>;
+  }
 
   if (!user) {
     return null; // Prevent rendering the children while redirecting

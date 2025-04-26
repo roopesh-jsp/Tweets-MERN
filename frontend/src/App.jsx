@@ -5,6 +5,8 @@ import Home from "./pages/Home";
 import { AuthProvider } from "./context/authContext";
 import Protection from "./Protection";
 import RootLayout from "./pages/RootLayout";
+import Profile from "./pages/Profile";
+import { TweetProvider } from "./context/tweetContext";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,14 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/profile",
+        element: (
+          <Protection>
+            <Profile />
+          </Protection>
+        ),
+      },
+      {
         path: "/auth",
         element: <Auth />,
       },
@@ -30,7 +40,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <AuthProvider>
-      <RouterProvider router={router} />
+      <TweetProvider>
+        <RouterProvider router={router} />
+      </TweetProvider>
     </AuthProvider>
   );
 }

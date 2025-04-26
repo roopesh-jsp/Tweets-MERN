@@ -1,10 +1,14 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import Protection from "../Protection";
 
 function RootLayout() {
   return (
     <div>
-      <nav>navBar</nav>
+      <Protection>
+        <Navbar />
+      </Protection>
       <Outlet />
     </div>
   );

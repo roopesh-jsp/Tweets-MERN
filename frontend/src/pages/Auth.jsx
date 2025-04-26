@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../context/authContext";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function Auth() {
   const { user, login, signup, loading, logout, error } = useAuth();
+  const location = useLocation();
   const nav = useNavigate();
   useEffect(() => {
     if (user) {
-      nav("/");
+      const from = location.state?.from || "/"; // <--- FIXED
+      nav(from, { replace: true }); // <--- FIXED
     }
   }, [user, nav]);
   const [isLogin, setIsLogin] = useState(true);

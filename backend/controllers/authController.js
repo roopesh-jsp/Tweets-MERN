@@ -148,7 +148,7 @@ const getMe = async (req, res) => {
       });
     }
     const decoded = jwt.verify(token, process.env.JWT_SECERET);
-    const user = await UserModel.findById(decoded.id);
+    const user = await UserModel.findById(decoded.id).populate("tweets");
     if (!user) {
       return res.status(401).json({
         success: false,
