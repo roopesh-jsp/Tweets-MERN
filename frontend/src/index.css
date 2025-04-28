@@ -94,6 +94,7 @@
 }
 .nav_left {
   font-size: 28px;
+  cursor: pointer;
 }
 .nav_right {
   display: flex;
@@ -222,7 +223,7 @@
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
   font-weight: 500;
   font-size: 18px;
-  position: relative;
+  /* position: relative; */
   min-width: 200px;
 }
 .profile_tweet_item .content {
@@ -242,7 +243,7 @@
   display: flex;
   justify-content: flex-end;
   gap: 5px;
-  position: relative;
+  /* position: relative; */
   left: 10px;
   /* background-color: aliceblue; */
 }
@@ -259,4 +260,81 @@
 }
 .profile_tweet_item .cta button:hover {
   background-color: var(--secondary-color-dark);
+}
+
+/* dialog from  */
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* transform: translate(-50%, -50%); */
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 100vh;
+  width: 100vw;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.dialog {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 80%;
+  max-width: 400px;
+}
+.dialog .cta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dialog .cta button {
+  background-color: rgb(202, 115, 115);
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.dialog .cta button:hover {
+  background-color: crimson;
+  color: whitesmoke;
+}
+.dialog form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  /* justify-content: center; */
+}
+.dialog form textarea {
+  width: 95%;
+  padding: 10px;
+  margin: 0 10px;
+  border-radius: 7px;
+  border: 1px solid black;
+  min-height: 100px;
+  font-size: 18px;
+  resize: none;
+}
+form button {
+  width: 70px;
+  height: 40px;
+  background-color: var(--secondary-color);
+  color: whitesmoke;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
 }

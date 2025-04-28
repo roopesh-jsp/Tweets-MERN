@@ -2,17 +2,25 @@ import React, { useState } from "react";
 import { FaPlus, FaUser } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
+import DialogForm from "./DialogForm";
 
 function Navbar() {
   const [showDropdown, setShowDropDown] = useState(false);
   const { logout } = useAuth();
   const nav = useNavigate();
+  const [showForm, setShowFrom] = useState(false);
 
   return (
     <nav className="navbar">
-      <h1 className="nav_left">Tweetz</h1>
+      {showForm ? <DialogForm closeModal={setShowFrom} /> : <></>}
+      <h1 className="nav_left" onClick={() => nav("/")}>
+        Tweetz
+      </h1>
       <div className="nav_right">
-        <div className="nav_add_tweet">
+        <div
+          className="nav_add_tweet"
+          onClick={() => setShowFrom((prev) => !prev)}
+        >
           <FaPlus />
         </div>
         <div
