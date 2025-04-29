@@ -136,6 +136,7 @@
   overflow: hidden;
   border-radius: 5px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+  z-index: 101;
 }
 .nav_dropdown ul {
   list-style-type: none;
@@ -258,10 +259,23 @@
   border-radius: 50%;
   transition: all 0.2 ease;
 }
+.tweet_actions .cta button {
+  font-size: 17px;
+  background-color: transparent;
+  border: none;
+  color: whitesmoke;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2 ease;
+}
 .profile_tweet_item .cta button:hover {
   background-color: var(--secondary-color-dark);
 }
-
+.tweet_actions .cta button:hover {
+  background-color: var(--secondary-color-dark);
+}
 /* dialog from  */
 
 .overlay {
@@ -337,4 +351,62 @@ form button {
   border-radius: 5px;
   border: none;
   cursor: pointer;
+}
+
+/* full tweets  */
+.tweets_container {
+  /* background-color: aquamarine; */
+  margin: 20px auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 20px;
+}
+.tweet_item {
+  width: 90%;
+  max-width: 500px;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--primary_color);
+  /* position: relative; */
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px rgb(164, 164, 164);
+}
+.tweet_item .content {
+  font-size: 18px;
+  font-weight: 600;
+}
+/* .tweet_item .divider {
+  bottom: 50px;
+} */
+.tweet_actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tweet_info {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 300;
+  font-size: 13px;
+}
+
+.tweet_actions .cta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  gap: 5px;
+}
+.tweet_actions .cta button {
+  font-size: 15px;
+  color: black;
+}
+.tweet_actions .cta button:hover {
+  color: whitesmoke;
 }

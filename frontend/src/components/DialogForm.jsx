@@ -1,9 +1,11 @@
 import React from "react";
 import axios from "axios";
 import { useAuth } from "../context/authContext";
+import { useTweet } from "../context/tweetContext";
 
 function DialogForm({ closeModal, isUpdate, tweet = {} }) {
   const { getUser } = useAuth();
+  const { getTweets } = useTweet();
   console.log(tweet);
 
   async function handleSubmit(e) {
@@ -22,6 +24,8 @@ function DialogForm({ closeModal, isUpdate, tweet = {} }) {
           }
         );
         dataa = data;
+        getUser();
+        getTweets();
       } else {
         const { data } = await axios.post(
           "http://localhost:3000/tweets/",
@@ -36,6 +40,7 @@ function DialogForm({ closeModal, isUpdate, tweet = {} }) {
       if (dataa.success) {
         closeModal(false);
         getUser();
+        getTweets();
       }
     } catch (error) {
       console.log(error);

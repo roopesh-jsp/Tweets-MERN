@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
+// import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext({
   user: {},
@@ -20,6 +21,7 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [error, setErrors] = useState(null);
   const [checkingCookie, setCheckingCookie] = useState(false);
+
   const getUser = async () => {
     setCheckingCookie(true);
     try {
@@ -54,6 +56,7 @@ export const AuthProvider = ({ children }) => {
       if (data.success) {
         setUser(data.user);
         setErrors(null);
+        window.location.href = "/";
       } else {
         setErrors(data.message);
       }
@@ -82,6 +85,7 @@ export const AuthProvider = ({ children }) => {
       if (data.success) {
         setUser(data.user);
         setErrors(null);
+        window.location.href = "/";
       } else {
         setErrors(data.message);
       }
@@ -106,6 +110,7 @@ export const AuthProvider = ({ children }) => {
         }
       );
       setUser(null);
+      window.location.href = "/auth";
     } catch (error) {
       console.log(error);
     }
