@@ -54,8 +54,9 @@
   font-weight: 700;
   letter-spacing: 1px;
   font-size: 15px;
+  width: fit-content;
   cursor: pointer;
-  margin-top: 15px;
+  margin: 15px auto;
   transition: all 0.3s ease;
 }
 .container form button:hover {
@@ -215,6 +216,7 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
+  margin-bottom: 40px;
 }
 .profile_tweet_item {
   padding: 20px 20px 10px 20px;
@@ -226,6 +228,7 @@
   font-size: 18px;
   /* position: relative; */
   min-width: 200px;
+  max-width: 90%;
 }
 .profile_tweet_item .content {
   display: flex;
@@ -357,10 +360,11 @@ form button {
 .tweets_container {
   /* background-color: aquamarine; */
   margin: 20px auto;
+  min-height: 70vh;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   flex-wrap: wrap;
   flex-direction: column;
   gap: 20px;
@@ -409,4 +413,27 @@ form button {
 }
 .tweet_actions .cta button:hover {
   color: whitesmoke;
+}
+
+.home_cta {
+  /* background-color: pink; */
+  width: fit-content;
+  margin: 50px auto;
+  display: flex;
+  gap: 15px;
+}
+.home_cta button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--secondary-color);
+  color: whitesmoke;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.home_cta button:hover {
+  background-color: var(--secondary-color-dark);
+  scale: 0.98;
 }

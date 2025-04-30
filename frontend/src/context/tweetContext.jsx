@@ -7,20 +7,26 @@ const TweetContext = createContext({
   tweets: [],
   getTweets: () => {},
   setTweets: () => {},
+  count: 0,
 });
 
 export const TweetProvider = ({ children }) => {
   const { getUser } = useAuth();
+  const [count, setCount] = useState(0);
 
   const [tweets, setTweets] = useState([]);
-  async function getTweets() {
+  async function getTweets(pg) {
     try {
-      const { data } = await axios.get("http://localhost:3000/tweets/", {
-        withCredentials: true,
-      });
+      const { data } = await axios.get(
+        "http://localhost:3000/tweets/" + `?page=${pg}&limit=4`,
+        {
+          withCredentials: true,
+        }
+      );
       // console.log(data);
       if (data?.success) {
         setTweets(data.tweets);
+        setCount(data.count);
       }
     } catch (error) {
       console.log(error);
@@ -49,6 +55,7 @@ export const TweetProvider = ({ children }) => {
     tweets,
     getTweets,
     setTweets,
+    count,
   };
   return (
     <TweetContext.Provider value={ctxVal}>{children}</TweetContext.Provider>

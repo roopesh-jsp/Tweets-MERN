@@ -17,6 +17,8 @@ const getAllTweets = async (req, res) => {
       .populate("creator", "-password -__v")
       .sort({ createdAt: -1 });
 
+    const cnt = await TweetModel.countDocuments();
+
     if (limit && limit !== "0") {
       const parsedLimit = parseInt(limit);
       query.limit(parsedLimit).skip(skip);
@@ -32,6 +34,7 @@ const getAllTweets = async (req, res) => {
     return res.status(200).json({
       success: true,
       tweets: allTweets,
+      count: cnt,
     });
   } catch (error) {
     console.log(error);
